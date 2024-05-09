@@ -1,0 +1,24 @@
+command ubuntu
+
+
+ sudo snap install microstack  --beta
+  sudo microstack init -- auto --control
+   microstack.openstack --version
+
+microstack.openstack image list
+
+microstack.openstack flavor list
+
+
+ hostname -I
+
+dashbord URL is  https://<ip-address> or    https://<ip-address>/dashboard  or   https://<ip-address>/horizon     
+
+
+
+username for dashboard is: admin
+
+below command is for getting dashboard :   sudo snap get microstack config.credentials keystone-password
+
+
+

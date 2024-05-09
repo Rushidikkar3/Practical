@@ -1,0 +1,19 @@
+1)object creation
+ -create object
+  -add fields
+
+2) tabs
+ -add objects to tab
+
+3) App Manager
+   1. app name 
+   2.click next
+   3. click next
+   4. add tab to the app
+ 
+4) App Launch
+  ::  click on this &search app name 
+
+
+
+  

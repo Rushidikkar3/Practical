@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Management System - Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Custom styles */
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #343a40;
+      padding-top: 70px;
+      color: #fff;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sidebar li {
+      padding: 10px;
+      cursor: pointer; 
+    }
+    .sidebar li:hover {
+      background-color: #495057;
+    }
+    .sidebar li.active {
+      background-color: #495057;
+    }
+    .sidebar li i {
+      margin-right: 8px;
+    }
+    /* Main content */
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    /* Cards */
+    .card {
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    /* Table */
+    .table {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .table thead {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .table th, .table td {
+      border-top: none !important;
+    }
+    .table tbody tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    .table tbody tr:hover {
+      background-color: #e9ecef;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100px;
+      }
+      .sidebar li {
+        padding: 10px;
+      }
+      .main-content {
+        margin-left: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</li>
+      <li><i class="fas fa-book"></i>Courses</li>
+      <li><i class="fas fa-user-graduate"></i>Students</li>
+      <li><i class="fas fa-chalkboard-teacher"></i>Professors</li>
+      <!-- Add more sidebar items as needed -->
+    </ul>
+  </div>
+  
+  <!-- Main content -->
+  <div class="main-content">
+    <h1>Exam Admin Dashboard</h1>
+    <!-- Statistics cards -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Courses</h5>
+            <p class="card-text">50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Students</h5>
+            <p class="card-text">1000</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Professors</h5>
+            <p class="card-text">80</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar chart -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Courses Enrollment</h5>
+            <canvas id="courseEnrollmentChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie chart -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Students Distribution</h5>
+            <canvas id="studentsDistributionChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Course Name</th>
+          <th>Professor</th>
+          <th>Students Enrolled</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Computer Science</td>
+          <td>Dr. Smith</td>
+          <td>200</td>
+          <td><button class="btn btn-primary">View Details</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Computer Science</td>
+            <td>Dr. Smith</td>
+            <td>200</td>
+            <td><button class="btn btn-primary">View Details</button></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Computer Science</td>
+            <td>Dr. Smith</td>
+            <td>200</td>
+            <td><button class="btn btn-primary">View Details</button></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Computer Science</td>
+            <td>Dr. Smith</td>
+            <td>200</td>
+            <td><button class="btn btn-primary">View Details</button></td>
+          </tr>
+        <!-- Add more table rows dynamically or statically -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS (optional, for Bootstrap components that require JS) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Chart Scripts -->
+  <script>
+    // Bar chart
+    var ctx = document.getElementById('courseEnrollmentChart').getContext('2d');
+    var courseEnrollmentChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Computer Science', 'Mathematics', 'Physics', 'Biology', 'Chemistry'],
+        datasets: [{
+          label: 'Enrollment',
+          data: [200, 180, 150, 120, 100],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Pie chart
+    var ctx2 = document.getElementById('studentsDistributionChart').getContext('2d');
+    var studentsDistributionChart = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Freshmen', 'Sophomores', 'Juniors', 'Seniors'],
+        datasets: [{
+          label: 'Distribution',
+          data: [250, 300, 200, 250],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

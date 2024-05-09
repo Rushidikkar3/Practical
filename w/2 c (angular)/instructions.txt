@@ -1,0 +1,11 @@
+create folder assignment2
+
+
+npm --version
+
+npm install -g @angular/cli@latest
+
+ng new part_c
+
+----------file add ---
+cd part_c

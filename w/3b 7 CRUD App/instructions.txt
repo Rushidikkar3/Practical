@@ -1,0 +1,35 @@
+------- Terminal --------
+1. npm init -y
+2. npm install express mongoose
+
+-------- Folder ----------
+- create app.js
+- create model.js
+
+-------- Terminal ---------
+- node app.js
+
+------ For showing Output ---------
+- Either use Postman or Thunder Client for checking API
+
+1. GET - http://localhost:3000/read
+2. POST - http://localhost:3000/register
+        - Add Body 
+        {
+            "name" : "Rushi",
+            "username" : "rushi27",
+            "password" : "11111111"
+        }
+        
+3. PUT - http://localhost:3000/update
+       - Add Body
+        {
+            "name" : "Abhi",
+            "username" : "rushi27",
+        }
+
+4. DELETE - http://localhost:3000/delete 
+        - Add Body
+        {
+            "username" : "rushi27"
+        }
